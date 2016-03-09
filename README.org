@@ -1,0 +1,22 @@
+* ZHAW WENG API
+
+This is the API for the ZHAW SML Web Engineering project. It is
+deployed [[http://zhaw-weng-api.herokuapp.com][here]]. The API is documented [[http://zhaw-weng-api.herokuapp.com/swagger-ui/index.html][here]].
+
+
+** Prerequisites
+
+You will need [[https://github.com/technomancy/leiningen][Leiningen 2.0]] or above installed.
+
+
+** Running
+
+To start a web server for the application, run:
+
+#+BEGIN_SRC sh
+    lein run
+#+END_SRC
+
+** License
+
+Copyright © 2016 Munen Alain M. Lafon
