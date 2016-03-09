@@ -1,0 +1,22 @@
+/target
+/lib
+/classes
+/checkouts
+pom.xml
+*.jar
+*.class
+/.lein-*
+profiles.clj
+/.env
+.nrepl-port
+/log
+figwheel_server.log
+.DS_Store
+.cljs_rhino_repl
+#########################
+# Emacs temporary files #
+#########################
+*~
+\#*\#
+.\#*
+out
