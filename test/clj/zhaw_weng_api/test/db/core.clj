@@ -18,11 +18,22 @@
 (deftest test-issues
   (jdbc/with-db-transaction [t-conn *db*]
     (jdbc/db-set-rollback-only! t-conn)
-    (testing "generated functions are working"
-      (is (= 1 (db/create-issue!
-                t-conn
-                {:id         1
-                 :title      "Test Issue 1"})))
-      (is (= {:id         1
+    (testing "generated functions from HugSQL are working"
+      (let [id (:id (db/create-issue!
+                     t-conn
+                     {:title      "Test Issue 1"}))]
+      (is (= {:id         id
               :title      "Test Issue 1"}
-             (db/get-issue t-conn {:id 1}))))))
+             (db/get-issue t-conn {:id id})))
+      (is (= 1 (db/update-issue!
+                t-conn
+                {:id         id
+                 :title      "Test Issue Updated"})))
+      (is (= {:id         id
+              :title      "Test Issue Updated"}
+             (db/get-issue t-conn {:id id})))
+      (is (= 1 (db/delete-issue!
+                t-conn
+                {:id         id})))
+      (is (= nil
+             (db/get-issue t-conn {:id id})))))))

@@ -1,3 +1,3 @@
 CREATE TABLE issues
-(id bigserial PRIMARY KEY,
+(id SERIAL,
  title text NOT NULL);

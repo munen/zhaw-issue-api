@@ -1,8 +1,9 @@
--- :name create-issue! :! :n
+-- :name create-issue! :<! :n
 -- :doc creates a new issue
 INSERT INTO issues
-(id, title)
-VALUES (:id, :title)
+(title)
+VALUES (:title)
+returning id
 
 -- :name update-issue! :! :n
 -- :doc update an existing issue
@@ -17,5 +18,5 @@ WHERE id = :id
 
 -- :name delete-issue! :! :n
 -- :doc delete a issue given the id
-DELETE FROM users
+DELETE FROM issues
 WHERE id = :id

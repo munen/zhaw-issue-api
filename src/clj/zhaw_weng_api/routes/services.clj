@@ -1,13 +1,20 @@
 (ns zhaw-weng-api.routes.services
   (:require [ring.util.http-response :refer :all]
             [compojure.api.sweet :refer :all]
+            [zhaw-weng-api.db.core :as db]
             [schema.core :as s]))
 
 (s/defschema Issue {(s/optional-key :id) Long
-                    :cid s/Keyword
+                    :cid String
                     :done Boolean
                     :title String
                     :due-date String})
+
+(defn add-issue! [new-issue]
+  "Add an issue to the Database and return it as a map with the new ID"
+  (let [id (:id (db/create-issue! new-issue))
+        issue (assoc new-issue :id id)]
+    issue))
 
 (defapi service-routes
   {:swagger {:ui "/swagger-ui"
@@ -16,13 +23,16 @@
                            :title "Sample API"
                            :description "Sample Services"}}}}
   (context "/api" []
-           :tags ["issues"]
+           :tags ["Issues API"]
 
            (POST "/issues" []
-                 :return   (s/maybe Issue)
-                 :body     [issue (s/maybe Issue)]
-                 :summary  "Create and save an Issue"
-                 (created issue))
+                 :return Issue
+                 :body [issue Issue]
+                 :summary "Create and save an issue"
+                 (ok (add-issue! issue))))
+
+  (context "/tests" []
+           :tags ["practice HTTP based services"]
 
            (GET "/plus" []
                 :return       Long

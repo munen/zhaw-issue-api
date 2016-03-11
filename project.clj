@@ -42,7 +42,8 @@
   :migratus {:store :database :db ~(get (System/getenv) "DATABASE_URL")}
 
   :plugins [[lein-cprop "1.0.1"]
-            [migratus-lein "0.2.6"]]
+            [migratus-lein "0.2.6"]
+            [lein-auto "0.1.2"]]
   :profiles
   {:uberjar {:omit-source true
              
@@ -63,7 +64,10 @@
                   :resource-paths ["env/dev/resources"]
                   :repl-options {:init-ns user}
                   :injections [(require 'pjstadig.humane-test-output)
-                               (pjstadig.humane-test-output/activate!)]}
+                               (pjstadig.humane-test-output/activate!)]
+                  :env {:dev        true
+                        :port       3000
+                        :nrepl-port 7000}}
    :project/test {:resource-paths ["env/dev/resources" "env/test/resources"]}
    :profiles/dev {}
    :profiles/test {}})
