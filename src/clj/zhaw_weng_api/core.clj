@@ -53,7 +53,7 @@
     (do
       (mount/start #'zhaw-weng-api.config/env)
       (migrations/migrate args (or (env :jdbc-database-url)
-                                   (str "jdbc:" (env :database-url))))
+                                   (env :database-url)))
                                 
       (System/exit 0))
     :else
