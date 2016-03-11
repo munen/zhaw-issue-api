@@ -25,13 +25,16 @@
   (context "/api" []
            :tags ["Issues API"]
 
+           (DELETE "/issues/:id" []
+                   :path-params [id :- Long]
+                   :summary "Deletes an issue"
+                   (ok (db/delete-issue! {:id id})))
+
            (POST "/issues" []
                  :return Issue
                  :body [issue Issue]
                  :summary "Create and save an issue"
                  (ok (add-issue! issue)))
-
-           ;; (db/create-issue! {:title "bar"}) 
 
            (GET "/issues" []
                  :return [Issue]
