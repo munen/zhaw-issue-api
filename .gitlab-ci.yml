@@ -1,6 +1,6 @@
 variables:
-  POSTGRES_DB: sample-test
-  DATABASE_URL: "postgresql://postgres@postgres:5432/sample-test"
+  POSTGRES_DB: zhaw_weng_api
+  DATABASE_URL: "jdbc:postgresql://postgres:5432/zhaw_weng_api?user=postgres"
 
 before_script:
   - apt-get update -y
