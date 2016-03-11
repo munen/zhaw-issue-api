@@ -40,10 +40,10 @@
   :resource-paths ["resources"]
 
   :main zhaw-weng-api.core
-  ;; :migratus {:store :database
-  ;;            :migration-dir "migrations"
-  ;;            :db (or (System/getenv "JBDC_DATABASE_URL")
-  ;;                    (System/getenv "DATABASE_URL"))}
+  :migratus {:store :database
+             :migration-dir "migrations"
+             :db (or (System/getenv "JBDC_DATABASE_URL")
+                     (System/getenv "DATABASE_URL"))}
   :plugins [[lein-cprop "1.0.1"]
             [migratus-lein "0.2.6"]
             [lein-auto "0.1.2"]]
