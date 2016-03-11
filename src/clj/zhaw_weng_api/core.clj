@@ -52,7 +52,7 @@
     (some #{"migrate" "rollback"} args)
     (do
       (mount/start #'zhaw-weng-api.config/env)
-      (migrations/migrate args (env :database-url))
+      (migrations/migrate args (env :jdbc-database-url))
       (System/exit 0))
     :else
     (start-app args)))
