@@ -1,21 +1,21 @@
--- :name create-user! :! :n
--- :doc creates a new user record
-INSERT INTO users
-(id, first_name, last_name, email, pass)
-VALUES (:id, :first_name, :last_name, :email, :pass)
+-- :name create-issue! :! :n
+-- :doc creates a new issue
+INSERT INTO issues
+(id, title)
+VALUES (:id, :title)
 
--- :name update-user! :! :n
--- :doc update an existing user record
-UPDATE users
-SET first_name = :first_name, last_name = :last_name, email = :email
+-- :name update-issue! :! :n
+-- :doc update an existing issue
+UPDATE issues
+SET title = :title
 WHERE id = :id
 
--- :name get-user :? :1
--- :doc retrieve a user given the id.
-SELECT * FROM users
+-- :name get-issue :? :1
+-- :doc retrieve a issue given the id.
+SELECT * FROM issues
 WHERE id = :id
 
--- :name delete-user! :! :n
--- :doc delete a user given the id
+-- :name delete-issue! :! :n
+-- :doc delete a issue given the id
 DELETE FROM users
 WHERE id = :id
