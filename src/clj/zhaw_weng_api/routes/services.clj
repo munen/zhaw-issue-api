@@ -34,13 +34,14 @@
                            :description "Sample Services"}}}}
   (context "/api" []
 
-           (context "/project" []
+           (context "/projects" []
                     :tags ["Project API"]
 
                     (POST "/" []
                           :return Project
                           :body [project Project]
                           :summary "Create and save a project"
+                          (println "In the project!")
                           (ok (add-project! project)))
 
                     (DELETE "/:id" []

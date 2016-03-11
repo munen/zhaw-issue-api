@@ -18,26 +18,31 @@
   (jdbc/with-db-transaction [t-conn *db*]
     (jdbc/db-set-rollback-only! t-conn)
     (testing "generated functions from HugSQL are working"
-      (let [issue {:cid        "some-uuid"
+      (let [project {:title    "Test Project 1"}
+            project_id (:id (db/create-project! t-conn project))
+            issue {:cid        "some-uuid"
                    :due_date   (java.util.Date.)
                    :done       false
-                   :title      "Test Issue 1"}
+                   :title      "Test Issue 1"
+                   :project_id project_id}
             id (:id (db/create-issue! t-conn issue))]
 
         (is (= (assoc issue :id id )
-               (db/get-issue t-conn {:id id})))
+               (db/get-issue t-conn {:id id :project_id project_id})))
 
         (is (= 1
                (db/update-issue!
                 t-conn
-                (assoc issue :id id :title "Test Issue Updated"))))
+                (assoc issue
+                       :id id
+                       :title "Test Issue Updated"))))
 
         (is (= (assoc issue :id id :title "Test Issue Updated")
-               (db/get-issue t-conn {:id id})))
+               (db/get-issue t-conn {:id id :project_id project_id})))
 
         (is (= 1 (db/delete-issue!
                   t-conn
-                  {:id         id})))
+                  {:id id :project_id project_id})))
 
         (is (= nil
-               (db/get-issue t-conn {:id id})))))))
+               (db/get-issue t-conn {:id id :project_id project_id})))))))

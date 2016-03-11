@@ -9,22 +9,20 @@
     (let [response (app (request :get "/"))]
       (is (= 200 (:status response)))))
 
-  ;; (testing "create issue"
-  ;;   (let [response (app (request :post "/api/issues" {:cid "string"
-  ;;                                                     :done true
-  ;;                                                     :title "string"
-  ;;                                                     :due-date "string"} ))]
+  ;; (testing "create project"
+  ;;   (let [response (app (-> (request :post "/api/projects" {:title "spec project"})
+  ;;                           (content-type "application-json")))]
   ;;     ;; (println response)
   ;;     ;; (println (slurp (:body response)))
-  ;;     (is (= 200 (:status response)))))
+  ;;     (is (= 200 (:status response))))) 
 
   (testing "add stuff"
-    (let [response (app (request :get "/tests/plus" {:x 5 :y 2}))]
+    (let [response (app (request :get "/api/tests/plus" {:x 5 :y 2}))]
       (is (= 200 (:status response)))
       (is (= "7" (slurp (:body response))))))
 
   (testing "delete stuff"
-    (let [response (app (request :post "/tests/minus" {:x "12" :y "10"}))]
+    (let [response (app (request :post "/api/tests/minus" {:x "12" :y "10"}))]
       (is (= "2" (slurp (:body response))))
       (is (= 200 (:status response)))))
 
