@@ -8,7 +8,7 @@ returning id
 -- :name update-issue! :! :n
 -- :doc update an existing issue
 UPDATE issues
-SET title = :title
+SET title = :title, done = :done, due_date = :due_date
 WHERE id = :id
 
 -- :name get-issue :? :1

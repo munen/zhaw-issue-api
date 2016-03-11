@@ -2,5 +2,5 @@ CREATE TABLE issues
 (id SERIAL,
  cid text NOT NULL,
  done boolean DEFAULT false,
- due_date date NOT NULL,
+ due_date timestamp NOT NULL,
  title text NOT NULL);

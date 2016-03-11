@@ -9,9 +9,8 @@
 (use-fixtures
   :once
   (fn [f]
-    (mount/start
-      #'zhaw-weng-api.config/env
-      #'zhaw-weng-api.db.core/*db*)
+    (mount/start #'zhaw-weng-api.config/env
+                 #'zhaw-weng-api.db.core/*db*)
     (migrations/migrate ["migrate"] (env :database-url))
     (f)))
 
@@ -20,23 +19,25 @@
     (jdbc/db-set-rollback-only! t-conn)
     (testing "generated functions from HugSQL are working"
       (let [issue {:cid        "some-uuid"
-                      :due_date   (java.util.Date.)
-                      :done       false
-                      :title      "Test Issue 1"}
+                   :due_date   (java.util.Date.)
+                   :done       false
+                   :title      "Test Issue 1"}
             id (:id (db/create-issue! t-conn issue))]
 
-      (is (= (assoc issue :id id )
-             (db/get-issue t-conn {:id id})))
+        (is (= (assoc issue :id id )
+               (db/get-issue t-conn {:id id})))
 
-      (is (= 1
-             (db/update-issue!
-              t-conn
-              (assoc issue :title "Test Issue Updated"))))
-
-      (is (= (assoc issue :title "Test Issue Updated")
-             (db/get-issue t-conn {:id id})))
-      (is (= 1 (db/delete-issue!
+        (is (= 1
+               (db/update-issue!
                 t-conn
-                {:id         id})))
-      (is (= nil
-             (db/get-issue t-conn {:id id})))))))
+                (assoc issue :id id :title "Test Issue Updated"))))
+
+        (is (= (assoc issue :id id :title "Test Issue Updated")
+               (db/get-issue t-conn {:id id})))
+
+        (is (= 1 (db/delete-issue!
+                  t-conn
+                  {:id         id})))
+
+        (is (= nil
+               (db/get-issue t-conn {:id id})))))))

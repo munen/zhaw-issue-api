@@ -30,6 +30,14 @@
                    :summary "Deletes an issue"
                    (ok (db/delete-issue! {:id id})))
 
+           (PUT "/issues/:id" []
+                :path-params [id :- Long]
+                :return Issue
+                :body [issue Issue]
+                :summary "Updates an issue"
+                (db/update-issue! (merge {:id id } issue))
+                (ok (db/get-issue {:id id})))
+
            (POST "/issues" []
                  :return Issue
                  :body [issue Issue]
