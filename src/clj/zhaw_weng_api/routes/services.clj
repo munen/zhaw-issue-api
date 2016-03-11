@@ -8,7 +8,7 @@
                     :cid String
                     :done Boolean
                     :title String
-                    :due-date String})
+                    :due_date java.util.Date})
 
 (defn add-issue! [new-issue]
   "Add an issue to the Database and return it as a map with the new ID"
@@ -29,7 +29,14 @@
                  :return Issue
                  :body [issue Issue]
                  :summary "Create and save an issue"
-                 (ok (add-issue! issue))))
+                 (ok (add-issue! issue)))
+
+           ;; (db/create-issue! {:title "bar"}) 
+
+           (GET "/issues" []
+                 :return [Issue]
+                 :summary "Retrieve all issues"
+                 (ok (db/get-issues))))
 
   (context "/tests" []
            :tags ["practice HTTP based services"]

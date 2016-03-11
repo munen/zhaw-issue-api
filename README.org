@@ -22,3 +22,7 @@ To start a web server for the application, run:
 ** License
 
 Copyright © 2016 Munen Alain M. Lafon
+** TODOs
+*** Updates
+**** TODO queries.sql
+**** TODO Tests
