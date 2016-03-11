@@ -28,6 +28,7 @@
                  [luminus-immutant "0.1.8"]
                  [luminus-migrations "0.1.0"]
                  [conman "0.4.5"]
+                 [org.clojure/java.jdbc "0.4.1"]
                  [org.postgresql/postgresql "9.4-1206-jdbc4"]
                  [metosin/compojure-api "1.0.1"]
                  [luminus-log4j "0.1.3"]]
