@@ -22,7 +22,7 @@
                     :min-idle   1
                     :max-idle   4
                     :max-active 32
-                    :jdbc-url   (env :database-url)})
+                    :jdbc-url   (env :jdbc-database-url)})
           :stop (conman/disconnect! *db*))
 
 (conman/bind-connection *db* "sql/queries.sql")

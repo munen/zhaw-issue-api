@@ -39,7 +39,7 @@
   :resource-paths ["resources"]
 
   :main zhaw-weng-api.core
-  :migratus {:store :database :db ~(get (System/getenv) "JDBC_DATABASE_URL")}
+  ;; :migratus {:store :database :db ~(get (System/getenv) "JDBC_DATABASE_URL")}
 
   :plugins [[lein-cprop "1.0.1"]
             [migratus-lein "0.2.6"]
