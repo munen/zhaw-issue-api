@@ -6,7 +6,7 @@
 
 (s/defschema Issue {(s/optional-key :id) Long
                     (s/optional-key :project_id) Long
-                    :cid String
+                    :client_id String
                     :done Boolean
                     :title String
                     :due_date java.util.Date})

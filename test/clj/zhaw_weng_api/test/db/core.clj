@@ -20,7 +20,7 @@
     (testing "generated functions from HugSQL are working"
       (let [project {:title    "Test Project 1"}
             project_id (:id (db/create-project! t-conn project))
-            issue {:cid        "some-uuid"
+            issue {:client_id  "some-uuid"
                    :due_date   (java.util.Date.)
                    :done       false
                    :title      "Test Issue 1"

@@ -1,8 +1,8 @@
 -- :name create-issue! :<! :n
 -- :doc creates a new issue
 INSERT INTO issues
-(cid, done, title, due_date, project_id)
-VALUES (:cid, :done, :title, :due_date, :project_id)
+(client_id, done, title, due_date, project_id)
+VALUES (:client_id, :done, :title, :due_date, :project_id)
 returning id
 
 -- :name update-issue! :! :n
