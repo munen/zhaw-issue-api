@@ -1,7 +1,7 @@
 (ns zhaw-weng-api.routes.home
   (:require [zhaw-weng-api.layout :as layout]
             [compojure.core :refer [defroutes GET]]
-            [ring.util.http-response :as response]
+            [ring.util.response :as response]
             [clojure.java.io :as io]))
 
 (defn home-page []
@@ -12,6 +12,5 @@
   (layout/render "about.html"))
 
 (defroutes home-routes
-  (GET "/" [] (home-page))
+  (GET "/" [] (response/redirect "/swagger-ui"))
   (GET "/about" [] (about-page)))
-
