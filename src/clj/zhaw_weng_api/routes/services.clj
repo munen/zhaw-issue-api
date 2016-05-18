@@ -9,6 +9,7 @@
                     :client_id String
                     :done Boolean
                     :title String
+                    :priority (s/enum "1" "2" "3")
                     :due_date java.util.Date})
 
 (s/defschema Project {(s/optional-key :id) Long

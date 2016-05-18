@@ -12,6 +12,15 @@ You will need [[https://github.com/technomancy/leiningen][Leiningen 2.0]] or abo
 
 ** Running
 
+*** Migrate Database
+
+#+BEGIN_SRC sh
+export DATABASE_URL="jdbc:postgresql://localhost/issue_tracker_dev?user=munen"
+lein migratus migrate
+#+END_SRC
+
+
+
 To start a web server for the application, run:
 
 #+BEGIN_SRC sh
@@ -23,4 +32,3 @@ To start a web server for the application, run:
 Copyright © 2016 Munen Alain M. Lafon
 ** TODOs
 *** Updates
-    
