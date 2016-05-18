@@ -9,6 +9,14 @@ deployed on Heroku and can be found [[http://zhaw-weng-api.herokuapp.com/swagger
 
 You will need [[https://github.com/technomancy/leiningen][Leiningen 2.0]] or above installed.
 
+** Installation Heroku
+
+#+BEGIN_SRC shell
+heroku addons:create heroku-postgresql:hobby-dev
+heroku run bash
+cd target
+java -jar zhaw_weng_api.jarmigrate
+#+END_SRC
 
 ** Running
 
