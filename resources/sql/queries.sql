@@ -1,14 +1,14 @@
 -- :name create-issue! :<! :n
 -- :doc creates a new issue
 INSERT INTO issues
-(client_id, done, title, due_date, project_id)
-VALUES (:client_id, :done, :title, :due_date, :project_id)
+(client_id, done, title, due_date, project_id, priority)
+VALUES (:client_id, :done, :title, :due_date, :project_id, :priority)
 returning id
 
 -- :name update-issue! :! :n
 -- :doc update an existing issue
 UPDATE issues
-SET title = :title, done = :done, due_date = :due_date
+SET title = :title, done = :done, due_date = :due_date, priority = :priority
 WHERE project_id = :project_id AND id = :id
 
 -- :name get-issue :? :1
