@@ -45,6 +45,19 @@
                           (println "In the project!")
                           (ok (add-project! project)))
 
+                    (GET "/:id" []
+                            :path-params [id :- Long]
+                            :summary "Retrieve a project"
+                            (ok (db/get-project {:id id})))
+
+                    (PUT "/:id" []
+                            :path-params [id :- Long]
+                            :return Project
+                            :body [project Project]
+                            :summary "Updates a project"
+                            (db/update-project! (assoc project :id id))
+                            (ok (db/get-project {:id id})))
+
                     (DELETE "/:id" []
                             :path-params [id :- Long]
                             :summary "Deletes a project"

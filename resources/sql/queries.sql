@@ -41,3 +41,14 @@ returning id
 -- :doc delete a project given the id
 DELETE FROM projects
 WHERE id = :id
+
+-- :name update-project! :! :n
+-- :doc update an existing project
+UPDATE projects
+SET title = :title
+WHERE id = :id
+
+-- :name get-project :? :1
+-- :doc retrieve a project given the id.
+SELECT * FROM projects
+WHERE id = :id
