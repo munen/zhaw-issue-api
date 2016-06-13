@@ -36,7 +36,4 @@ To start a web server for the application, run:
 #+END_SRC
 
 ** License
-
-Copyright © 2016 Munen Alain M. Lafon
-** TODOs
-*** Updates
+   [[file:LICENSE][GPLv3]]
