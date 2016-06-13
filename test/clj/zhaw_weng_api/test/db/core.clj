@@ -23,6 +23,7 @@
             issue {:client_id  "some-uuid"
                    :due_date   (java.util.Date.)
                    :done       false
+                   :priority   "1"
                    :title      "Test Issue 1"
                    :project_id project_id}
             id (:id (db/create-issue! t-conn issue))]

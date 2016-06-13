@@ -4,17 +4,17 @@
             [zhaw-weng-api.handler :refer :all]))
 
 (deftest test-app
-  
+
   (testing "main route"
     (let [response (app (request :get "/"))]
-      (is (= 200 (:status response)))))
+      (is (= 302 (:status response)))))
 
   ;; (testing "create project"
   ;;   (let [response (app (-> (request :post "/api/projects" {:title "spec project"})
   ;;                           (content-type "application-json")))]
   ;;     ;; (println response)
   ;;     ;; (println (slurp (:body response)))
-  ;;     (is (= 200 (:status response))))) 
+  ;;     (is (= 200 (:status response)))))
 
   (testing "add stuff"
     (let [response (app (request :get "/api/tests/plus" {:x 5 :y 2}))]
@@ -37,4 +37,3 @@
   (testing "not-found route"
     (let [response (app (request :get "/invalid"))]
       (is (= 404 (:status response))))))
-
