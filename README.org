@@ -15,7 +15,7 @@ You will need [[https://github.com/technomancy/leiningen][Leiningen 2.0]] or abo
 heroku addons:create heroku-postgresql:hobby-dev
 heroku run bash
 cd target
-java -jar zhaw_weng_api.jarmigrate
+java -jar zhaw_weng_api.jar migrate
 #+END_SRC
 
 ** Running
