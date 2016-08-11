@@ -1,8 +1,8 @@
 -- :name create-issue! :<! :n
 -- :doc creates a new issue
 INSERT INTO issues
-(client_id, done, title, due_date, project_id, priority)
-VALUES (:client_id, :done, :title, :due_date, :project_id, :priority)
+(client_id, done, title, due_date, project_id, project_client_id, priority)
+VALUES (:client_id, :done, :title, :due_date, :project_id, :project_client_id, :priority)
 returning id
 
 -- :name update-issue! :! :n
@@ -33,8 +33,8 @@ WHERE id = :id AND project_id = :project_id
 -- :name create-project! :<! :n
 -- :doc creates a new project
 INSERT INTO projects
-(title)
-VALUES (:title)
+(client_id, title, active)
+VALUES (:client_id, :title, :active)
 returning id
 
 -- :name delete-project! :! :n
@@ -45,7 +45,7 @@ WHERE id = :id
 -- :name update-project! :! :n
 -- :doc update an existing project
 UPDATE projects
-SET title = :title
+SET title = :title, active = :active
 WHERE id = :id
 
 -- :name get-project :? :1

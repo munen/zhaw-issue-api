@@ -7,13 +7,16 @@
 (s/defschema Issue {(s/optional-key :id) Long
                     (s/optional-key :project_id) Long
                     :client_id String
+                    :project_client_id String
                     :done Boolean
                     :title String
                     :priority (s/enum "1" "2" "3")
                     :due_date java.util.Date})
 
 (s/defschema Project {(s/optional-key :id) Long
-                      :title String})
+                      :client_id String
+                      :title String
+                      :active Boolean})
 
 (defn add-issue! [new-issue project_id]
   "Add an issue to the Database and return it as a map with the new ID"
@@ -42,7 +45,6 @@
                           :return Project
                           :body [project Project]
                           :summary "Create and save a project"
-                          (println "In the project!")
                           (ok (add-project! project)))
 
                     (GET "/:id" []
