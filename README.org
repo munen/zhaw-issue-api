@@ -2,8 +2,8 @@
 
 [[https://gitlab.com/munen/zhaw-weng-api/badges/master/build.svg]]
 
-This is the API for the ZHAW SML Web Engineering project. It is
-deployed on Heroku and can be found [[http://zhaw-weng-api.herokuapp.com/swagger-ui/index.html][here]].
+This is the API for the ZHAW SoE "Web3" project. It is
+deployed on Heroku and can be found [[http://zhaw-web3-issue-tracker-api.herokuapp.com/swagger-ui/index.html][here]].
 
 ** Prerequisites
 
