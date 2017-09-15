@@ -1,0 +1,2 @@
+ALTER TABLE issues DROP COLUMN created_at RESTRICT;
+ALTER TABLE issues DROP COLUMN updated_at RESTRICT;

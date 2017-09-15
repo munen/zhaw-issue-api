@@ -32,7 +32,9 @@
             id (:id (db/create-issue! t-conn issue))]
 
         (is (= (assoc issue :id id )
-               (db/get-issue t-conn {:id id :project_id project_id})))
+               (dissoc
+                (db/get-issue t-conn {:id id :project_id project_id})
+                :created_at :updated_at)))
 
         (is (= 1
                (db/update-issue!
@@ -42,7 +44,9 @@
                        :title "Test Issue Updated"))))
 
         (is (= (assoc issue :id id :title "Test Issue Updated")
-               (db/get-issue t-conn {:id id :project_id project_id})))
+               (dissoc
+                (db/get-issue t-conn {:id id :project_id project_id})
+                :created_at :updated_at)))
 
         (is (= 1 (db/delete-issue!
                   t-conn

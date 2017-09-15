@@ -6,6 +6,8 @@
 
 (s/defschema Issue {(s/optional-key :id) Long
                     (s/optional-key :project_id) Long
+                    (s/optional-key :created_at) java.util.Date
+                    (s/optional-key :updated_at) java.util.Date
                     :client_id String
                     :project_client_id String
                     :done Boolean
