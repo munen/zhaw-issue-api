@@ -21,6 +21,18 @@ java -jar zhaw_weng_api.jar migrate
 
 *** Migrate Database
 
+
+**** Create the new database
+
+#+BEGIN_SRC sh
+sudo su - postgres
+psql
+CREATE DATABASE zhaw_weng_shop_dev OWNER munen;
+CREATE DATABASE zhaw_weng_shop_test OWNER munen;
+#+END_SRC
+
+**** Run migrations
+
 #+BEGIN_SRC sh
 export DATABASE_URL="jdbc:postgresql://localhost/issue_tracker_dev?user=munen"
 lein migratus migrate
