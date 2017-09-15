@@ -1,9 +1,9 @@
-(ns zhaw-weng-api.db.core
+(ns zhaw-issue-api.db.core
   (:require
     [cheshire.core :refer [generate-string parse-string]]
     [clojure.java.jdbc :as jdbc]
     [conman.core :as conman]
-    [zhaw-weng-api.config :refer [env]]
+    [zhaw-issue-api.config :refer [env]]
     [mount.core :refer [defstate]])
   (:import org.postgresql.util.PGobject
            org.postgresql.jdbc4.Jdbc4Array

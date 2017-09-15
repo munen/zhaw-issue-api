@@ -19,7 +19,7 @@ Request middleware functions are located under the `zhaw_weng_api.middleware` na
 This namespace is reserved for any custom middleware for the application. Some default middleware is
 already defined here. The middleware is assembled in the `wrap-base` function.
 
-Middleware used for development is placed in the `zhaw-weng-api.dev-middleware` namespace found in
+Middleware used for development is placed in the `zhaw-issue-api.dev-middleware` namespace found in
 the `env/dev/clj/` source path.
 
 ### Here are some links to get started

@@ -1,4 +1,4 @@
-(ns zhaw-weng-api.dev-middleware
+(ns zhaw-issue-api.dev-middleware
   (:require [ring.middleware.reload :refer [wrap-reload]]
             [selmer.middleware :refer [wrap-error-page]]
             [prone.middleware :refer [wrap-exceptions]]))

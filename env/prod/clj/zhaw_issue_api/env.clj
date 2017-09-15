@@ -1,4 +1,4 @@
-(ns zhaw-weng-api.env
+(ns zhaw-issue-api.env
   (:require [clojure.tools.logging :as log]))
 
 (def defaults

@@ -1,7 +1,7 @@
-(ns zhaw-weng-api.routes.services
+(ns zhaw-issue-api.routes.services
   (:require [ring.util.http-response :refer :all]
             [compojure.api.sweet :refer :all]
-            [zhaw-weng-api.db.core :as db]
+            [zhaw-issue-api.db.core :as db]
             [schema.core :as s]))
 
 (s/defschema Issue {(s/optional-key :id) Long

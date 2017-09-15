@@ -1,16 +1,16 @@
-(ns zhaw-weng-api.test.db.core-test
-  (:require [zhaw-weng-api.db.core :refer [*db*] :as db]
+(ns zhaw-issue-api.test.db.core-test
+  (:require [zhaw-issue-api.db.core :refer [*db*] :as db]
             [luminus-migrations.core :as migrations]
             [clojure.test :refer :all]
             [clojure.java.jdbc :as jdbc]
-            [zhaw-weng-api.config :refer [env]]
+            [zhaw-issue-api.config :refer [env]]
             [mount.core :as mount]))
 
 (use-fixtures
   :once
   (fn [f]
-    (mount/start #'zhaw-weng-api.config/env
-                 #'zhaw-weng-api.db.core/*db*)
+    (mount/start #'zhaw-issue-api.config/env
+                 #'zhaw-issue-api.db.core/*db*)
     (migrations/migrate ["migrate"] (env :database-url))
     (f)))
 

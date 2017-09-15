@@ -1,8 +1,8 @@
-(ns zhaw-weng-api.middleware
-  (:require [zhaw-weng-api.layout :refer [*app-context* error-page]]
+(ns zhaw-issue-api.middleware
+  (:require [zhaw-issue-api.layout :refer [*app-context* error-page]]
             [clojure.tools.logging :as log]
-            [zhaw-weng-api.env :refer [defaults]]
-            [zhaw-weng-api.config :refer [env]]
+            [zhaw-issue-api.env :refer [defaults]]
+            [zhaw-issue-api.config :refer [env]]
             [ring.middleware.flash :refer [wrap-flash]]
             [immutant.web.middleware :refer [wrap-session]]
             [ring.middleware.webjars :refer [wrap-webjars]]

@@ -1,7 +1,7 @@
-(ns zhaw-weng-api.test.handler-test
+(ns zhaw-issue-api.test.handler-test
   (:require [clojure.test :refer :all]
             [ring.mock.request :refer :all]
-            [zhaw-weng-api.handler :refer :all]))
+            [zhaw-issue-api.handler :refer :all]))
 
 (deftest test-app
 

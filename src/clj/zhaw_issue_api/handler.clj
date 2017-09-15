@@ -1,11 +1,11 @@
-(ns zhaw-weng-api.handler
+(ns zhaw-issue-api.handler
   (:require [compojure.core :refer [routes wrap-routes]]
-            [zhaw-weng-api.layout :refer [error-page]]
-            [zhaw-weng-api.routes.home :refer [home-routes]]
-            [zhaw-weng-api.routes.services :refer [service-routes]]
+            [zhaw-issue-api.layout :refer [error-page]]
+            [zhaw-issue-api.routes.home :refer [home-routes]]
+            [zhaw-issue-api.routes.services :refer [service-routes]]
             [compojure.route :as route]
             [ring.middleware.cors :refer [wrap-cors]]
-            [zhaw-weng-api.middleware :as middleware]))
+            [zhaw-issue-api.middleware :as middleware]))
 
 (def app-routes
   (routes

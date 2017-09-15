@@ -39,7 +39,7 @@
   :source-paths ["src/clj"]
   :resource-paths ["resources"]
 
-  :main zhaw-weng-api.core
+  :main zhaw-issue-api.core
   :migratus {:store :database
              :migration-dir "migrations"
              :db (or (System/getenv "JBDC_DATABASE_URL")

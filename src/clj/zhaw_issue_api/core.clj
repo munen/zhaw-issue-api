@@ -1,12 +1,12 @@
-(ns zhaw-weng-api.core
-  (:require [zhaw-weng-api.handler :as handler]
+(ns zhaw-issue-api.core
+  (:require [zhaw-issue-api.handler :as handler]
             [luminus.repl-server :as repl]
             [luminus.http-server :as http]
             [luminus-migrations.core :as migrations]
-            [zhaw-weng-api.config :refer [env]]
+            [zhaw-issue-api.config :refer [env]]
             [clojure.tools.cli :refer [parse-opts]]
             [clojure.tools.logging :as log]
-            [zhaw-weng-api.env :refer [defaults]]
+            [zhaw-issue-api.env :refer [defaults]]
             [luminus.logger :as logger]
             [mount.core :as mount])
   (:gen-class))
@@ -51,7 +51,7 @@
   (cond
     (some #{"migrate" "rollback"} args)
     (do
-      (mount/start #'zhaw-weng-api.config/env)
+      (mount/start #'zhaw-issue-api.config/env)
       (migrations/migrate args (or (env :jdbc-database-url)
                                    (env :database-url)))
                                 

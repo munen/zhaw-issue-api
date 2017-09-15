@@ -1,4 +1,4 @@
-(ns zhaw-weng-api.config
+(ns zhaw-issue-api.config
   (:require [cprop.core :refer [load-config]]
             [cprop.source :as source]
             [mount.core :refer [args defstate]]))
