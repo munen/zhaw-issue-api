@@ -34,5 +34,17 @@ To start a web server for the application, run:
     lein run
 #+END_SRC
 
+To start a repl, run:
+
+#+BEGIN_SRC sh
+    lein repl
+#+END_SRC
+
+To start the web server within a repl, run:
+
+#+BEGIN_SRC clojure
+    (start)
+#+END_SRC
+
 ** License
    [[file:LICENSE][GPLv3]]

@@ -1,4 +1,4 @@
-(ns zhaw-weng-api.test.handler
+(ns zhaw-weng-api.test.handler-test
   (:require [clojure.test :refer :all]
             [ring.mock.request :refer :all]
             [zhaw-weng-api.handler :refer :all]))

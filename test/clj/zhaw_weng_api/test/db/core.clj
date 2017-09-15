@@ -1,4 +1,4 @@
-(ns zhaw-weng-api.test.db.core
+(ns zhaw-weng-api.test.db.core-test
   (:require [zhaw-weng-api.db.core :refer [*db*] :as db]
             [luminus-migrations.core :as migrations]
             [clojure.test :refer :all]
@@ -18,9 +18,12 @@
   (jdbc/with-db-transaction [t-conn *db*]
     (jdbc/db-set-rollback-only! t-conn)
     (testing "generated functions from HugSQL are working"
-      (let [project {:title    "Test Project 1"}
+      (let [project {:title     "Test Project 1"
+                     :client_id "some-uuid-1"
+                     :active    true}
             project_id (:id (db/create-project! t-conn project))
-            issue {:client_id  "some-uuid"
+            issue {:client_id  "some-uuid-2"
+                   :project_client_id "some-uuid-1"
                    :due_date   (java.util.Date.)
                    :done       false
                    :priority   "1"
