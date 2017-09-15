@@ -27,8 +27,8 @@ java -jar zhaw_weng_api.jar migrate
 #+BEGIN_SRC sh
 sudo su - postgres
 psql
-CREATE DATABASE zhaw_weng_shop_dev OWNER munen;
-CREATE DATABASE zhaw_weng_shop_test OWNER munen;
+CREATE DATABASE issue_tracker_dev OWNER munen;
+CREATE DATABASE issue_tracker_test OWNER munen;
 #+END_SRC
 
 **** Run migrations

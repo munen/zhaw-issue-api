@@ -45,7 +45,7 @@ WHERE id = :id
 -- :name update-project! :! :n
 -- :doc update an existing project
 UPDATE projects
-SET title = :title, active = :active
+SET title = :title, active = :active, updated_at = NOW()
 WHERE id = :id
 
 -- :name get-project :? :1
