@@ -76,7 +76,7 @@
                             :summary "Deletes a project"
                             (ok (db/delete-project! {:id id}))))
 
-           (context "/project/:project_id" []
+           (context "/projects/:project_id" []
                     :tags ["Issues API"]
                     :path-params [project_id :- Long]
                     :description (clojure.string/join
